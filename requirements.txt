@@ -1,8 +1,10 @@
 uWSGI==1.9.17.1
 Flask==0.10.1
+jinja2-hamlpy==0.1
 Flask-Assets==0.8
 pyScss==1.1.5
-jinja2-hamlpy==0.1
+cssmin==0.1.4
+jsmin==2.0.4
 celery==3.0.23
 SQLAlchemy==0.8.2
 python-dateutil==2.1

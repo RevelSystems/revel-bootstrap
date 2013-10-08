@@ -8,14 +8,17 @@
     %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
     {% endassets %}
     %link{ :href => "{{ favicon_url }}", :type => "image/x-icon", :rel => "shortcut icon"}
+  %body
+    %script{ :src => "//code.jquery.com/jquery.js", :type => "text/javascript"}
+    {% assets "all.js" %}
+    %script{ :src => "{{ ASSET_URL }}", :type => "text/javascript" }
+    {% endassets %}
+    %header
+      .content
+        %img{ :src => "{{ logo_url }}" }
 
-  %header
-    .content
-      %img{ :src => "{{ logo_url }}" }
+    %section
+      .content
 
-  %section
-    .content
-
-
-  %footer
-    %p Copyright 2013
+    %footer
+      %p Copyright 2013
