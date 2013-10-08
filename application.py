@@ -3,7 +3,7 @@ from flask import Flask
 import jinja2
 from filters.humanize_bytes import humanize_bytes
 from filters.humanize_seconds import humanize_seconds
-from blueprints import admin, dummy
+from blueprints import dummy
 import settings
 from jinja2_hamlpy import HamlPyExtension
 
@@ -20,7 +20,6 @@ def create_app(settings=settings):
     init_extensions(application=app)
     # register blueprints
     app.register_blueprint(dummy.dummy)
-    app.register_blueprint(admin.admin, url_prefix='/admin')
     return app
 
 application = create_app()
