@@ -1,3 +1,4 @@
+from itertools import chain
 import fnmatch
 import os
 from jinja2_hamlpy import HamlPyExtension
@@ -5,7 +6,7 @@ from flask.ext.assets import Environment, Bundle
 
 
 def find(pattern):
-    for root, dir_names, file_names in os.walk('./'):
+    for root, dir_names, file_names in os.walk('./blueprints/'):
         for filename in fnmatch.filter(file_names, pattern):
             matched_file = os.path.join(root, filename)
             print "bundle {!r}".format(matched_file)
@@ -22,7 +23,8 @@ def init_extensions(application):
     scss = Bundle(*list(find('*.scss')), filters='pyscss', output='all.css')
     assets.register('all.css', bootstrap_css, scss)
 
-    bootstrap_js = Bundle(*list(find('bootstrap*.js')), filters='jsmin', output='bootstrap.js')
-    assets.register('all.js', bootstrap_js)
+    js = Bundle(*chain(find('jquery*.js'), find('bootstrap*.js')), filters='rjsmin', output='jq-bstrap.js')
+    assets.register('jq-bstrap.js', js)
+
     #assets.add(bundle)
     #bundle.build()

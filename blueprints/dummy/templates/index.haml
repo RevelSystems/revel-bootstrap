@@ -4,15 +4,17 @@
     %title= "Your Website"
     %meta{ :content => "", :name => "description" }
     %meta{ :content => "", :name => "author" }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% assets "all.css" %}
     %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
     {% endassets %}
     %link{ :href => "{{ favicon_url }}", :type => "image/x-icon", :rel => "shortcut icon"}
   %body
-    %script{ :src => "//code.jquery.com/jquery.js", :type => "text/javascript"}
-    {% assets "all.js" %}
+
+    {% assets "jq-bstrap.js" %}
     %script{ :src => "{{ ASSET_URL }}", :type => "text/javascript" }
     {% endassets %}
+
     %header
       .content
         %img{ :src => "{{ logo_url }}" }
