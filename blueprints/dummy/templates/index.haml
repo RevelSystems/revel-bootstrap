@@ -4,7 +4,9 @@
     %title= "Your Website"
     %meta{ :content => "", :name => "description" }
     %meta{ :content => "", :name => "author" }
-    %link{ :href => "{{ index_css_url }}", :media => "screen", :rel => "stylesheet" }
+    {% assets "all.css" %}
+    %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
+    {% endassets %}
 
   %header
     .content
