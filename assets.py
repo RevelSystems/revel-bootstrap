@@ -15,12 +15,15 @@ def find(pattern):
 def init_assets(application):
     assets = Environment(application)
     assets.url = application.static_url_path
-    bootstrap_css = Bundle(*list(find('bootstrap*.css')), filters='cssmin', output='bootstrap.css')
-    scss = Bundle(*list(find('*.scss')), filters='pyscss', output='all.css')
+    bootstrap_css = Bundle(*list(find('bootstrap*.css')), filters='cssmin', output='css/bootstrap.css')
+    scss = Bundle(*list(find('*.scss')), filters='pyscss, cssmin', output='css/all.css')
     assets.register('all.css', bootstrap_css, scss)
 
-    js = Bundle(*chain(find('jquery*.js'), find('bootstrap*.js')), filters='rjsmin', output='jq-bstrap.js')
+    js = Bundle(*chain(find('jquery*.js'), find('bootstrap*.js')), filters='rjsmin', output='js/jq-bstrap.js')
     assets.register('jq-bstrap.js', js)
+
+    coffee = Bundle(*list(find('*.coffee')), filters='coffeescript, rjsmin', output='js/app.js')
+    assets.register('app.js', coffee)
 
     #assets.add(bundle)
     #bundle.build()
