@@ -1,3 +1,4 @@
+from assets import init_assets
 from extensions import init_extensions
 from flask import Flask
 import jinja2
@@ -16,8 +17,9 @@ def create_app(settings=settings):
     app.config.from_object(settings)
     app.jinja_env.add_extension(HamlPyExtension)
     app.jinja_env.hamlish_mode = 'indented'
-    # initialize extensions
+    # initialize extensions and assets
     init_extensions(application=app)
+    init_assets(application=app)
     # register blueprints
     app.register_blueprint(dummy.dummy)
     return app
