@@ -1,0 +1,25 @@
+body {
+    background: #0072AF;
+    color: #ffffff;
+}
+
+img {
+    padding: 1em;
+}
+
+a {
+    color: #ffffff;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.big {
+    font-size: 3em;
+}
+
+.content {
+    text-align: center;
+    width: 100%;
+}

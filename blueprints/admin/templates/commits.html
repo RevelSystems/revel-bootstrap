@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Rev. #</th>
+            <th>Author</th>
+            <th>When</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+  {% for commit in commits %}
+    <tr>
+        <td>{{ commit.id }}</td>
+        <td>{{ commit.author }}</td>
+        <td>{{ commit.when }}</td>
+        <td>{{ commit.message }}</td>
+    </tr>
+  {% else %}
+    <tr>
+        <td colspan="4">Unbelievable. No history on this server so far.</td>
+    </tr>
+  {% endfor %}
+  </table>
+</div>
+
+{% endblock %}
