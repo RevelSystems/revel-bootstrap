@@ -5,7 +5,7 @@ Skeleton of a flask app.
 
 Features:
 - Supports HAML and SCSS
-- Supports CoffeeScript
+- CoffeeScript and JavaScript support
 - Twitter bootstrap v3.0.0 included
 - jQuery v2.0.3 included
 - Celery tasks
