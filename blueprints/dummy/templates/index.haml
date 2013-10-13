@@ -1,30 +1,4 @@
-!!! 5
-%html
-  %head
-    %title= "Revel Bootstrap"
-    %meta{ :content => "RevelSystems bootstrap website.", :name => "description" }
-    %meta{ :content => "revelsystems.com", :name => "author" }
-    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    {% assets "app.css" %}
-    %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
-    {% endassets %}
-    {% assets "favicon.ico" %}
-    %link{ :href => "{{ favicon_url }}", :type => "image/x-icon", :rel => "shortcut icon"}
-    {% endassets %}
-  %body
-
-    {% assets "app.js" %}
-    %script{ :src => "{{ ASSET_URL }}", :type => "text/javascript" }
-    {% endassets %}
-
-    %header
-      .content
-        {% assets "logo.png" %}
-        %img{ :src => "{{ ASSET_URL }}" }
-        {% endassets %}
-
-    %section
-      .content
-
-    %footer
-      %p Copyright 2013
+{% extends "layout.haml" %}
+{% block content %}
+%p Hello world1
+{% endblock %}
