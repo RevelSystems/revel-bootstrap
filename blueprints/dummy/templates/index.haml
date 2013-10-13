@@ -1,14 +1,16 @@
 !!! 5
 %html
   %head
-    %title= "Your Website"
-    %meta{ :content => "", :name => "description" }
-    %meta{ :content => "", :name => "author" }
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    %title= "Revel Bootstrap"
+    %meta{ :content => "RevelSystems bootstrap website.", :name => "description" }
+    %meta{ :content => "revelsystems.com", :name => "author" }
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     {% assets "app.css" %}
     %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
     {% endassets %}
+    {% assets "favicon.ico" %}
     %link{ :href => "{{ favicon_url }}", :type => "image/x-icon", :rel => "shortcut icon"}
+    {% endassets %}
   %body
 
     {% assets "app.js" %}
@@ -17,7 +19,9 @@
 
     %header
       .content
-        %img{ :src => "{{ logo_url }}" }
+        {% assets "logo.png" %}
+        %img{ :src => "{{ ASSET_URL }}" }
+        {% endassets %}
 
     %section
       .content

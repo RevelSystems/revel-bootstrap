@@ -24,6 +24,7 @@ class LogBundle(Bundle):
 def init_assets(application):
     assets = Environment(application)
     assets.url = application.static_url_path
+
     bootstrap_css = LogBundle(*list(find('bootstrap*.css')), filters='cssmin', output='css/bootstrap.css')
     scss = LogBundle(*list(find('*.scss')), filters='pyscss, cssmin', output='css/app.css')
     assets.register('app.css', bootstrap_css, scss)
@@ -36,5 +37,10 @@ def init_assets(application):
     coffee = LogBundle(*list(find('*.coffee')), filters='coffeescript, rjsmin', output='js/coffee.js')
     assets.register('app.js', *filter(lambda x: x, [jq_bstrap, js, coffee]))
 
+    favicon = LogBundle(*list(find('favicon.ico')), output='img/favicon.ico')
+    assets.register('favicon.ico', favicon)
+
+    logo = LogBundle(*list(find('logo.png')), output='img/logo.png')
+    assets.register('logo.png', logo)
     #assets.add(bundle)
     #bundle.build()

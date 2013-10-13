@@ -11,7 +11,4 @@ def favicon():
 
 @dummy.route("/")
 def index():
-    return render_template('index.haml',
-                           index_css_url=url_for('.static', filename='index.css'),
-                           logo_url=url_for('.static', filename='img/logo.png'),
-                           favicon_url=url_for('.static', filename='img/favicon.ico'))
+    return render_template('index.haml')
