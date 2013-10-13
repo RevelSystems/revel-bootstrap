@@ -42,5 +42,8 @@ def init_assets(application):
 
     logo = LogBundle(*list(find('logo.png')), output='img/logo.png')
     assets.register('logo.png', logo)
+
+    forkme = LogBundle(*list(find('forkme.png')), output='img/forkme.png')
+    assets.register('forkme.png', forkme)
     #assets.add(bundle)
     #bundle.build()
