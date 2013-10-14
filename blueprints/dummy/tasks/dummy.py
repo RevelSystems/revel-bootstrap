@@ -5,10 +5,14 @@ import settings
 celery = Celery('tasks.dummy')
 celery.config_from_object(settings)
 
-@celery.task(name="dummy.empty")
-def empty(task_id):
+
+@celery.task(name="dummy.simpletask")
+def simpletask():
     pass
 
+@celery.task(name="dummy.simpletask2")
+def simpletask2():
+    pass
 
 @celery.task
 def hearbeat():

@@ -17,11 +17,6 @@ INSTANCES_CONFIG_PATH = '/etc/atlas.app/instances'
 BROKER_URL = 'sqla+sqlite:///celery.db'
 CELERY_IMPORTS = ("blueprints.dummy.tasks",)
 CELERYBEAT_SCHEDULE = {
-    'old_backups_cleanup': {
-        'task': 'blueprints.dummy.tasks.backup.old_backups_cleanup',
-        'schedule': crontab(minute='11', hour='11', day_of_week='*'),
-        'args': ()
-    },
     'heartbeat': {
         'task': 'blueprints.dummy.tasks.dummy.hearbeat',
         'schedule': crontab(minute='*'),
