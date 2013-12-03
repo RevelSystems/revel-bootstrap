@@ -1,0 +1,20 @@
+{% extends "layout/unauthorized.haml" %}
+
+{% block content %}
+.alert.alert-danger
+  %a{ :class => "close", :data-dismiss => "alert", :href => "#"} &times;
+  Incorrect Username or Password!
+.row.login-container
+  .span4.offset4.well
+    %form{ :method => "post", :action => "", :role => "form"}
+      .form-group
+        %label{ :for => "username"} Username
+        %input{ :name => "username", :class => "form-control", :type => "text", :value => "", :placeholder => "JohnDoe" }
+      .form-group
+        %label{ :for => "password"} Password
+        %input{ :name => "password", :class => "form-control", :type => "password", :value => "", :placeholder => "secret" }
+      %label.checkbox
+        %input{ :type => "checkbox", :name => "remember", :value => "1"} Remember Me
+      %p.submit
+        %button{ :class => "btn btn-info", :type => "submit", :name => "commit"} Sign In
+{% endblock %}

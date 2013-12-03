@@ -1,0 +1,31 @@
+!!! 5
+%html
+  %head
+    %title= "Revel bootstrap"
+    %meta{ :content => "RevelSystems bootstrap website.", :name => "description" }
+    %meta{ :content => "revelsystems.com", :name => "author" }
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    {% assets "app.css" %}
+    %link{ :href => "{{ ASSET_URL }}", :media => "screen", :rel => "stylesheet" }
+    {% endassets %}
+    {% assets "favicon.ico" %}
+    %link{ :href => "{{ favicon_url }}", :type => "image/x-icon", :rel => "shortcut icon"}
+    {% endassets %}
+  %body
+    {% block header %}
+    {% endblock %}
+
+
+    .container
+    {% block content %}
+      .page-header
+        %h1 Some header here
+      %p{ :class => "lead" } Some text here
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    {% assets "app.js" %}
+    %script{ :src => "{{ ASSET_URL }}", :type => "text/javascript" }
+    {% endassets %}
