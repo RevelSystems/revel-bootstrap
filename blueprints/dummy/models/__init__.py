@@ -25,13 +25,13 @@ class Session(Base):
     __tablename__ = "sessions"
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
-    value = Column(String(16))
+    key = Column(String(16))
     created = Column(DateTime)
     expires = Column(DateTime)
 
     def __init__(self, user):
         self.user_id = user
-        self.value = unicode(uuid.uuid4())
+        self.key = unicode(uuid.uuid4())
         self.created = datetime.utcnow()
         self.expires = self.created + timedelta(hours=1)
 
