@@ -1,9 +1,7 @@
 from datetime import datetime, timedelta
 import uuid
+from database import Base
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, Boolean
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
 
 
 class SessionExpiredException(Exception):
@@ -26,7 +24,7 @@ class User(Base):
 class Session(Base):
     __tablename__ = "sessions"
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey("user.id"))
+    user_id = Column(Integer, ForeignKey("users.id"))
     value = Column(String(16))
     created = Column(DateTime)
     expires = Column(DateTime)
@@ -51,7 +49,7 @@ class Session(Base):
 class Tasks(Base):
     __tablename__ = "tasks"
     id = Column(Integer, primary_key=True)
-    issuer_id = Column(Integer, ForeignKey("user.id"))
+    issuer_id = Column(Integer, ForeignKey("users.id"))
     type = Column(String(20))
     status = Column(String(12))
     log = Column(Text)
